@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="maltbiaDetailingPlusEmailApp">
+<head>
+	<title>Maltbia Janitorial Service Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="import" href="header.html"> -->
+	<meta charset="ISO-8859-1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+		type="text/javascript"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"
+		type="text/javascript"></script>
+
+	<script src="js/project_app.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css"	href="css/project_style.css">
+</head>
+
+<body>
+
+	<div ng-controller="sendEmailCtrl">
+
+		<div class="container-fluid">
+
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<p class="navbar-text">Maltbia Janitorial Service Form</p>
+				<ul class="nav navbar-nav">
+					<li><a href="project_customer_request.html">Request Form</a></li>
+					<li class="active">
+						<a href="project_customer_email.html">Email</a></li>
+					<li><a href="project_customer_update.html">Janitorial Work Schedule</a></li>
+				</ul>
+			</nav>
+
+			<div class="customerEmailPage">
+
+				<div class="header">
+					<button type="button" ng-click="sendEmail()"
+						ng-disabled="isEmailDisabled" class="btn btn-success">
+						<span class="glyphicon glyphicon-edit"></span>Send </button>
+					<button type="button" ng-click="clearSend()" class="btn btn-warning">
+						<span class="glyphicon"></span>Clear </button>
+					<p>
+						<span class="warning" id="emailStatusId" ng-bind="emailStatus"></span>
+					</p>
+				</div>
+
+				<table class="emailCustomer">
+					<tr>
+						<td><label for="newSubject">Subject:</label><br> <input
+							name="newSubject" type="text" required ng-model="newSubject"
+							ng-disabled="lock" size="30" />
+							<p>
+								<span class="warning" ng-bind="subjectMessage"></span>
+							</p> 
+							<label for="newCompose">Compose:</label> <br> 
+							<textarea name="newCompose" cols="50" rows="10" required ng-model="newCompose"></textarea>
+							<p>
+								<span class="warning" ng-bind="composeMessage"></span> 
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="footer"> Copyright Maltbia Detailing Plus Project</div>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Maltbia Janitorial Service Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--  <link rel="import" href="header.html"> -->
+	<meta charset="ISO-8859-1">		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+		type="text/javascript"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"
+		type="text/javascript"></script>
+	
+	<script src="js/project_app.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/project_style.css">
+</head>
+
+<body>
+
+	<div ng-app="maltbiaDetailingPlusRequestApp" ng-controller="customerCtrl">
+
+		<div class="container-fluid">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<p class="navbar-text">Maltbia Janitorial Service Form  </p>
+				<ul class="nav navbar-nav"> 
+					<li class="active">
+						<a href="project_customer_request.html">Request Form</a>
+					</li>
+					<li>
+						<a href="project_customer_email.html">Email</a>
+					</li>
+					<li><a href="project_customer_update.html">Janitorial Work Schedule</a></li>																			
+				</ul>								
+			</nav>
+			
+			<h4>Please enter all required data and press 'Submit' to enter you appointment request.</h4>
+			<h4>Press 'Clear' to reset input.</h4>
+			
+			<div class="customerSubmitPage">			
+				
+				<div class="header">
+					<button type="button" ng-click="submitCustomer()" 
+						ng-disabled="isSubmitCustomerDisabled"
+						class="btn btn-success"> <span class="glyphicon glyphicon-edit"></span>Submit</button>
+					<button type="button" ng-click="clearSubmit()" 
+						class="btn btn-warning"> <span class="glyphicon"></span>Clear</button>				
+					
+					<p> <span class="warning" id="submitStatusId" ng-bind="submitStatus"></span></p>
+				</div>
+				
+				
+				<table  class="customerSubmit">						
+						<tr>							
+							<td>
+								
+								<label for="newFirstName">First Name:</label><br>
+								<input name="newFirstName" type="text" required ng-model="newCustomerFirstName" ng-disabled="lock" size=20 />
+								<p><span class="warning" ng-bind="firstNameMessage"></span></p>
+							
+								<label for="newLastName">Last Name:</label><br>
+								<input name="newLastName" type="text" required ng-model="newCustomerLastName" ng-disabled="lock" size=20 />
+								<p><span class="warning" ng-bind="lastNameMessage"></span></p>
+							
+								<label for="newPhone">Phone:</label><br>
+								<input name="newPhone" type="text" required ng-model="newCustomerPhone" ng-disabled="lock" size=15/>
+								<p><span class="warning" ng-bind="phoneMessage"></span></p>
+							
+								<label for="newStreet">Street:</label><br>
+								<input name="newStreet" type="text" required ng-model="newCustomerStreet" ng-disabled="lock" size=50/>
+								<p><span class="warning" ng-bind="streetMessage"></span></p>
+							
+								<label for="newCity">City:</label><br>
+								<input name="newCity" type="text" required ng-model="newCustomerCity" ng-disabled="lock" size=20/>
+								<p><span class="warning" ng-bind="cityMessage"></span></p>
+							
+								<label for="newState">State:</label><br>
+								<input name="newState" type="text" required ng-model="newCustomerState" ng-disabled="lock" size=20/>
+								<p><span class="warning" ng-bind="stateMessage"></span></p>								
+						
+								<label for="newZip">Zip:</label><br>
+								<input name="newZip" type="text" required ng-model="newCustomerZip" ng-disabled="lock" size=20/>
+								<p><span class="warning" ng-bind="zipMessage"></span></p>
+						
+								<label for="newEmail">Email:</label><br>
+								<input name="newEmail" type="text" required ng-model="newCustomerEmail" ng-disabled="lock" size=30/>
+								<p><span class="warning" ng-bind="emailMessage"></span></p>
+							</td>
+						</tr>
+						<tr>		
+							<td>
+								<label for="newServices">Services:</label><br>
+								<select name="newServices" required
+										ng-options="x for x in services"  
+										ng-model="newCustomerServices" 
+										ng-disabled="lock">
+								</select>								
+							</td>
+						</tr>
+						<tr>							
+							<td>
+								<input type="checkbox" required										
+										ng-model="newMondayCustomer" 
+										ng-disabled="lock" />
+								<label for="newMonday">Monday</label><br>
+								<input type="checkbox" required										
+										ng-model="newTuesdayCustomer" 
+										ng-disabled="lock" />
+								<label for="newTuesday">Tuesday</label><br>	
+								<input type="checkbox" required										
+										ng-model="newWednesdayCustomer" 
+										ng-disabled="lock" />
+								<label for="newWednesday">Wednesday</label><br>
+								<input type="checkbox" required										
+										ng-model="newThursdayCustomer" 
+										ng-disabled="lock" />
+								<label for="newThursday">Thursday</label><br>	
+								<input type="checkbox" required										
+										ng-model="newFridayCustomer" 
+										ng-disabled="lock" />
+								<label for="newFriday">Friday</label><br>	
+								<input type="checkbox" required										
+										ng-model="newSaturdayCustomer" 
+										ng-disabled="lock" />
+								<label for="newSaturday">Saturday</label><br>
+								<input type="checkbox" required										
+										ng-model="newSundayCustomer" 
+										ng-disabled="lock" />
+								<label for="newSunday">Sunday</label><br>																
+							</td>
+						</tr>						
+																
+				</table>				
+							
+			</div>
+			
+			<div class="footer"> Copyright Maltbia Detailing Plus Project</div>
+			
+		</div>
+			
+	</div>
+
+
+</body>
+</html>
